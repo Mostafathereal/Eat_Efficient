@@ -9,3 +9,5 @@ Our solution is to implement automated kiosks in La Piazza. You may login to the
 
 The kiosks allow you to order quickly and efficiently order food, giving you recommendations based on what you've eaten before, and also what other people at La Piazza have eaten the most of. 
 Based on a hunger level you set before you order, the recommendations may be tweaked so that a user doesn't end up ordering more than they can handle. This would help reduce the amount of wasted food at La Piazza.
+
+In future, this could be extended in a number of ways. One being, it would give you an estimated wait time based on the amount of people in the queue. 

@@ -1,0 +1,103 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<style>
+.h7 {
+  font-size: 0.8rem;
+  color: white;
+}
+
+.gedf-wrapper {
+  margin-top: 0.97rem;
+  border-radius:25px;
+  padding-left:20px;
+  
+  
+}
+
+@media (min-width: 992px) {
+  .gedf-main {
+      padding-left: 4rem;
+      padding-right: 4rem;
+      border-radius:25px;
+      
+      
+  }
+  .gedf-card {
+      margin-bottom: 2.77rem;
+      border-radius:25px;
+      padding-left:15px;
+      border-color:pink;
+      border-width:7px;
+  }
+}
+
+/**Reset Bootstrap*/
+.dropdown-toggle::after {
+  content: none;
+  display: none;
+}
+</style>
+
+<h1 class="mb-3"> Posts by {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
+    
+<p>&nbsp;</p>
+{% for post in posts %}
+<!--- \\\\\\\Post-->
+<div class="card gedf-card">
+<div class="card-header">
+  <div class="d-flex justify-content-between align-items-center">
+      <div class="d-flex justify-content-between align-items-center">
+          <div class="mr-2">
+              <img class="rounded-circle" width="45" src="{{ post.author.profile.image.url }}" alt="">
+          </div>
+          <div class="ml-2">
+              <a class="card-link" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+          </div>
+      </div>
+      <div>
+      </div>
+  </div>
+
+</div>
+<div class="card-body">
+  <div class="text-muted h7 mb-2"> <i class="fa fa-clock-o"></i>{{ post.date_posted|date:"F d, Y" }}</div>
+
+      <h5 class="card-title">{{ post.title }}</h5>
+  </a>
+
+  <p class="card-text">
+      {{ post.content }}
+  </p>
+</div>
+<div class="card-footer">
+  <a href="#" class="card-link"><i class="fa fa-gittip"></i> Like</a>
+  <a href="#" class="card-link"><i class="fa fa-comment"></i> Comment</a>
+  <a href="#" class="card-link"><i class="fa fa-mail-forward"></i> Share</a>
+</div>
+</div>
+<!-- Post /////-->
+
+{% endfor %}
+
+    {% if is_paginated %}
+
+    {% if page_obj.has_previous %}
+      <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+      <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %}
+
+    {% for num in page_obj.paginator.page_range %}
+      {% if page_obj.number == num %}
+        <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+      {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+        <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+      {% endif %}
+    {% endfor %}
+
+    {% if page_obj.has_next %}
+      <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+      <a class="btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+    {% endif %}
+
+  {% endif %}
+{% endblock content %}

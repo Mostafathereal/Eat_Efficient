@@ -1,0 +1,87 @@
+{% extends "blog/base.html" %}
+{% block content %}
+<style>
+        .button {
+    background-color: white;
+    border: none;
+    color: #990033;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position:relative;
+    transition: .5s ease;
+    top: 80px;
+    left: 610px;
+    }
+
+
+        body{
+      height: calc(100vh - 8em);
+      padding: 4em;
+      color: rgba(255,255,255,.75);
+      font-family: Trebuchet MS;
+      background-color:#990033;  
+    }
+    .vertical-menu {
+        width: 600px; /* Set a width if you like */
+        padding-left:100px;
+        
+      }
+      
+      .vertical-menu a {
+       
+        display: block;
+        color: white;
+        text-decoration: none;
+        transition: color 0.2s;
+        font-family: Trebuchet MS;
+        font-size: 25px;
+        text-transform: uppercase;
+        padding: 10px 0;
+      
+      }
+      .vertical-menu a1 {
+       
+       display: block;
+       color: white;
+       text-decoration: none;
+       transition: color 0.2s;
+       font-family: Trebuchet MS;
+       font-size: 35px;
+       text-transform: uppercase;
+       padding: 10px 0;
+     
+     }
+      .vertical-menu a.active {
+        background-color: #4CAF50; /* Add a green color to the "active/current" link */
+        
+      }
+      br {
+          line-height: 2px;
+       }
+    
+    </style>
+    
+    
+    <div class="vertical-menu">
+            <ul>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+                  
+                
+              <a1>Most Ordered</a1>      
+              <li><a href="#">Chicken Strips</a></li>
+              <li><a href="#">Traditional Poutine</a></li>
+              <li><a href="#">Butter Chicken Poutine</a></li>
+              <li><a href="#">Burger</a></li>
+              <li><a href="#">Southwest Wrap</a></li>
+              <li><a href="#">Steak Sandwich</a></li>
+            </ul>
+            
+          </div>
+ 
+{% endblock content %}
